@@ -5,7 +5,6 @@ import 'package:portal_news/model/slider_model.dart';
 import 'package:portal_news/service/data.dart';
 import 'package:portal_news/service/slider_data.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePages extends StatefulWidget {
   const HomePages({super.key});
@@ -16,7 +15,7 @@ class HomePages extends StatefulWidget {
 
 class _HomePagesState extends State<HomePages> {
   List<CategoryModel> categories = [];
-  List<sliderModel> sliders = [];
+  List<SliderModel> sliders = [];
 
   int activeIndex = 0;
   @override
