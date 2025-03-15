@@ -5,6 +5,7 @@ import 'package:portal_news/model/slider_model.dart';
 import 'package:portal_news/service/data.dart';
 import 'package:portal_news/service/slider_data.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePages extends StatefulWidget {
   const HomePages({super.key});
@@ -44,6 +45,7 @@ class _HomePagesState extends State<HomePages> {
       ),
       body: Container(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               margin: EdgeInsets.only(left: 10.0),
@@ -61,6 +63,31 @@ class _HomePagesState extends State<HomePages> {
               ),
             ),
             SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Breaking News",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "View All",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
             CarouselSlider.builder(
               itemCount: sliders.length,
               itemBuilder: (context, index, realIndex) {
@@ -82,7 +109,32 @@ class _HomePagesState extends State<HomePages> {
               ),
             ),
             SizedBox(height: 30),
-            buildIndicator(),
+            Center(child: buildIndicator()),
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Trending News",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "View All",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -117,9 +169,10 @@ class _HomePagesState extends State<HomePages> {
             name,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 25,
               fontWeight: FontWeight.bold,
             ),
+            softWrap: true,
           ),
         ),
       ],
