@@ -38,6 +38,7 @@ class _HomePagesState extends State<HomePages> {
         child: Column(
           children: [
             Container(
+              margin: EdgeInsets.only(left: 10.0),
               height: 70,
               child: ListView.builder(
                 shrinkWrap: true,
@@ -68,7 +69,33 @@ class CategoryTitle extends StatelessWidget {
       margin: EdgeInsets.only(right: 16),
       child: Stack(
         children: [
-          Image.asset(image, width: 120, height: 60, fit: BoxFit.cover),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(6),
+            child: Image.asset(
+              image,
+              width: 120,
+              height: 70,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            width: 120,
+            height: 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              color: Colors.black38,
+            ),
+            child: Center(
+              child: Text(
+                categoryName,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
