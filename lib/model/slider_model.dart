@@ -1,4 +1,4 @@
-class sliderModel {
+class SliderModel {
   String? image;
   String? name;
 }
