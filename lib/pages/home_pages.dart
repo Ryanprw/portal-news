@@ -4,6 +4,7 @@ import 'package:portal_news/model/category_model.dart';
 import 'package:portal_news/model/slider_model.dart';
 import 'package:portal_news/service/data.dart';
 import 'package:portal_news/service/slider_data.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePages extends StatefulWidget {
   const HomePages({super.key});
@@ -15,6 +16,8 @@ class HomePages extends StatefulWidget {
 class _HomePagesState extends State<HomePages> {
   List<CategoryModel> categories = [];
   List<sliderModel> sliders = [];
+
+  int activeIndex = 0;
   @override
   void initState() {
     categories = getCategories();
@@ -71,8 +74,15 @@ class _HomePagesState extends State<HomePages> {
                 autoPlay: true,
                 enlargeCenterPage: true,
                 enlargeStrategy: CenterPageEnlargeStrategy.height,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    activeIndex = index;
+                  });
+                },
               ),
             ),
+            SizedBox(height: 30),
+            buildIndicator(),
           ],
         ),
       ),
@@ -113,6 +123,16 @@ class _HomePagesState extends State<HomePages> {
           ),
         ),
       ],
+    ),
+  );
+
+  Widget buildIndicator() => AnimatedSmoothIndicator(
+    activeIndex: activeIndex,
+    count: sliders.length,
+    effect: SlideEffect(
+      dotWidth: 15,
+      dotHeight: 15,
+      activeDotColor: Colors.red,
     ),
   );
 }
