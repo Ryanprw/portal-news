@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portal_news/pages/home_pages.dart';
-import 'package:portal_news/pages/landing_pages.dart';
+import 'package:portal_news/presentation/main_pages/main_pages.dart';
+import 'package:portal_news/presentation/pages/landing_pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => LandingPages(),
-        '/home': (context) => HomePages(),
+        '/home': (context) => MainPage(),
       },
     );
   }
